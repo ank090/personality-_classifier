@@ -1,0 +1,88 @@
+
+#para{
+
+    font-family:'Raleway',sans-serif;
+    font-weight: 450;
+    padding-top:30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    letter-spacing:1px;
+    
+}
+
+body{
+   
+   
+    align-items: center;
+    background-color: #CDDEFF;
+}
+
+b{
+    font-weight:bold;
+}
+
+.keys{
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width:60%;
+    height:70%;
+
+}
+.traits{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width:40%;
+    height:50%;
+
+}
+
+.navbar{
+        height: 100px;
+}
+
+#navbarNav{
+    font-size: 17.5px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+
+    
+}
+
+#title{
+    font-size:30px;
+    letter-spacing: 1px
+}
+
+#table_link{
+    text-decoration: underline;
+}
+
+.patti{
+    background:#7CD1B8;
+}
+
+#underline{
+    background:#7CD1B8;
+
+}
+#butt{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    
+}
+
+#keys{
+    font-size:20px;
+    font-weight: bolder;
+    word-spacing: 1.5px;
+    
+   
+}
