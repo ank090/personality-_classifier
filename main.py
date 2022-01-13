@@ -8,7 +8,7 @@ from nltk.stem import WordNetLemmatizer
 from trait_provider import trait_provider
 
 app=Flask(__name__)
-model = pickle.load(open('./static/model.pkl','rb'))
+model = pickle.load(open('./model.pkl','rb'))
 matrix_features= pickle.load(open('./static/matrix_feature.pkl','rb'))
 label_enc = pickle.load(open('./static/label_en.pkl','rb'))
 
