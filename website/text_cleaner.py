@@ -15,18 +15,6 @@ import pickle
 import nltk
 from nltk.corpus import stopwords
 
-"""importing data"""
-
-data=pd.read_csv("mbti_1.csv")
-data_processing=data['posts']
-y=data.drop('posts',axis='columns')
-y.value_counts()
-
-dat=["i am being ridiculous"]
-dat=pd.Series(dat)
-
-
-
 """cleaning data """
 
 def cleaning(data):
@@ -38,6 +26,7 @@ def cleaning(data):
     text=re.sub(r'http://([^\s]+)',' ',text)
     text=re.sub(r'https://([^\s]+)',' ',text)
     text=re.sub(r"['-:,'_?./%?0-9(),]"," ",text)
+    text=re.sub(r"[\n]"," ",text)
     text=text.lower()
     text=text.split()
     for word in text:
