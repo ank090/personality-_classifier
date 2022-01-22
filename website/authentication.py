@@ -4,12 +4,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from flask import Flask, render_template,request,url_for,flash, redirect,Blueprint
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 authentication=Blueprint("authentication",__name__,static_folder="static",template_folder="templates")
-
-
-
-
 
 @authentication.route('/login',methods=['GET','POST'])
 def login():
@@ -63,8 +58,6 @@ def signup():
         
 
     return render_template('create_acc.html')
-
-
 
 
 @authentication.route("/logout")

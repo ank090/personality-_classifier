@@ -4,11 +4,6 @@ from os import path
 import pickle
 from flask_login import LoginManager
 
-
-
-
-
-
 model = pickle.load(open('website\static\model.pkl','rb'))
 matrix_features= pickle.load(open('website\static\matrix_feature.pkl','rb'))
 label_enc = pickle.load(open('website\static\label_en.pkl','rb'))

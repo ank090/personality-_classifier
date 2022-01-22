@@ -17,9 +17,6 @@ from flask import Blueprint
 
 routes=Blueprint("routes",__name__,static_folder="static",template_folder="templates")
 
-#Sign up ---Creating account---
-
-
 # Ml part processing text to predict the personality
 
 @routes.route('/predict',methods=['GET','POST'])
@@ -55,6 +52,5 @@ def traits():
 def home():
     return render_template('index.html')
 
-# Logging in the user 
 
 
