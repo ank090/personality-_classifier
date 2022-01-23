@@ -4,7 +4,7 @@
 <form method='POST'>
       <div class='col-6 mx-auto mt-5'>
       <div class="form-group mx-auto">
-        <label for="exampleFormControlTextarea1" class="ml-5">,<h3>Enter the sentence to know your aura!</h3></label>
+        <label for="exampleFormControlTextarea1" class="ml-5">,<h3><b>Enter the sentence to know your aura!</b></h3></label>
         <textarea class="form-control mr-2" id="texts" name="text" rows="5"style="width: 600px" required></textarea>
         <button class="btn btn-primary  mt-4" type="submit" id="butt">Submit</button>
         <br>
@@ -14,4 +14,9 @@
       </div>
       </div>
 </form>
+<script>
+  if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, window.location.href );
+  }
+  </script>
 {% endblock %}

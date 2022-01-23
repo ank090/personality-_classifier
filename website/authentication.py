@@ -38,6 +38,7 @@ def signup():
 
         user_name_check=User.query.filter_by(user_name=name).first()
         email_check=User.query.filter_by(email=email).first()
+        check_phone=User.query.filter_by(phone=phone).first()
         if user_name_check:
             flash("User exists",category='error')
         elif email_check:
@@ -51,8 +52,7 @@ def signup():
             db.session.commit()
             
             login_user(new_user,remember=True)
-            
-            flash("Registered Successfully",category='success')
+        
             
             return redirect(url_for('routes.home'))
         

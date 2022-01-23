@@ -3,17 +3,15 @@ from .db_models import User,Statements
 from.import db
 import pickle
 from .text_cleaner import cleaning
-from. import model,matrix_feature,label_enc
+from . import model,matrix_features,label_enc
 import numpy as np
 import pandas as pd
 from nltk.stem import WordNetLemmatizer
 from .trait_provider import trait_provider
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import login_user,logout_user,login_required,current_user,UserMixin,LoginManager,current_user
+from flask_login import login_user,login_required,current_user
 from  werkzeug.security import generate_password_hash,check_password_hash
 from sklearn.feature_extraction.text import CountVectorizer
-from flask import Blueprint
-
 
 routes=Blueprint("routes",__name__,static_folder="static",template_folder="templates")
 
@@ -23,9 +21,9 @@ routes=Blueprint("routes",__name__,static_folder="static",template_folder="templ
 @login_required
 def classify():
     if request.method=="POST":
-        text=str(request.form.get("text"))
-        if len(text)>0:
-            text=pd.Series(text)
+        text1=str(request.form.get("text"))
+        if len(text1)>0:
+            text=pd.Series(text1)
             cleaning(text)
             cv=CountVectorizer(max_features=5000)
             x=cv.fit_transform(text).toarray()
@@ -36,21 +34,32 @@ def classify():
             pred=model.predict(x)
             key=label_enc.inverse_transform([pred[0]])
             result=trait_provider(key[0])  #trait provider returns the detai of thr key traits given by our model
-            usr=Statements(sent=text,user_id=current_user.id,trait=key[0])
-            db.session.add(usr)
-            db.session.commit()
-            return render_template('one.html',text=result,keys=key[0])
-    return render_template("one.html")
+            statement_check = Statements.query.filter_by(sent=text1).first()
+            if statement_check:
+                return render_template('one.html',text=result,keys=key[0],user=current_user.user_name )
+            else:
+                usr=Statements(sent=text1,user_id=current_user.id,trait=key[0])
+                db.session.add(usr)
+                db.session.commit()
+                return render_template('one.html',text=result,keys=key[0],user=current_user.user_name )
+            
+    return render_template("one.html",user=current_user.user_name)
 
 @routes.route('/traits')
 @login_required
 def traits():
-    return render_template("16_traits.html")
+    return render_template("16_traits.html",user=current_user.user_name)
 
 @routes.route(('/home'))
 @login_required
 def home():
-    return render_template('index.html')
+    return render_template('index.html',user=current_user.user_name)
 
+@routes.route("/dashboard",methods=['GET','POST'])
+@login_required
+def dashboard():
+    sentences=Statements.query.filter_by(user_id=current_user.id).all()
+    #
+    return render_template("dashboard.html",user=current_user.user_name,texts=sentences)
 
 

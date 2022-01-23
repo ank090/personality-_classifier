@@ -15,6 +15,7 @@
     padding-bottom: 50px;
     letter-spacing:1px;
     
+    
 }
 
 body{
@@ -50,17 +51,14 @@ b{
 
 .navbar{
         height: 60px;
-        background:#89B5AF;
+        background:#24A19C;
 }
 
 .navbar-nav{
     font-size: 17.5px;
     letter-spacing: 1px;
     word-spacing: 2px;
-    
-
-
-    
+    color:white;    
 }
 
 #title{
@@ -138,6 +136,55 @@ h1{
     
 }
 
-#logout{
-    margin-left: 300px;
+.dropdown-item{
+    
+    font-weight:bold;
+    font-size: 17.5px;
+    letter-spacing: 1.5px;
+    
+}
+
+#drop{
+    margin-left: 430px;
+}
+
+.dropdown-menu{
+    background:#89B5AF;  
+}
+
+#history{
+
+    font-size:20px;
+    font-weight:bolder;
+    background-color: #89B5AF;
+    margin-top: 50px;
+    color:white;
+    padding-left:40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 40px;
+   
+}
+#footer{
+    margin-top: 100px
+}
+
+#info{
+    font-size:17px;
+    text-align: center;
+    margin: 20px;
+    
+}
+
+#key_info{
+    background:#89B5AF;
+    padding: 20px;
+    margin:20px;
+    color: white;
+
+
+}
+b{
+    color:rgb(94, 93, 93);
+    
 }

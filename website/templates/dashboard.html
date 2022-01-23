@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+
+
+{% block body %}
+
+<body>
+`   <h1 class="display-5 mx-5 my-4" id="dashboard_head"> <b>Prediction History</b> </h1>
+
+    {% for sent in texts %}
+    
+        <div class="container" >
+            
+            <p id="history"><b>Statement:-</b> &nbsp;{{sent.sent}} <br> <b>Personality key:-</b>&nbsp;  {{sent.trait}} </p>
+
+        </div>
+   {% endfor %}
+   <p id="info" >for more information on Personality keys click <a href="{{url_for('routes.traits')}}">here</a>
+
+   </p>
+</body>
+
+{% endblock %}
